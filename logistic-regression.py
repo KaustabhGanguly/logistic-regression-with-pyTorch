@@ -1,3 +1,5 @@
+#importing the dependencies
+
 import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
@@ -21,8 +23,8 @@ test_dataset = dsets.MNIST(root='./data',
 STEP 2: MAKING DATASET ITERABLE
 '''
 
-batch_size = 100
-n_iters = 3000
+batch_size = 80
+n_iters = 30000
 num_epochs = n_iters / (len(train_dataset) / batch_size)
 num_epochs = int(num_epochs)
 
@@ -70,7 +72,7 @@ criterion = nn.CrossEntropyLoss()
 '''
 STEP 6: INSTANTIATE OPTIMIZER CLASS
 '''
-learning_rate = 0.001
+learning_rate = 0.0001
 
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
@@ -108,7 +110,7 @@ for epoch in range(num_epochs):
         
         iter += 1
         
-        if iter % 500 == 0:
+        if iter % 1000 == 0:
             # Calculate Accuracy         
             correct = 0
             total = 0
